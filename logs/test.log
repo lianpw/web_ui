@@ -1,0 +1,32 @@
+INFO     2022-09-15 12:36:36 [core.read_data:19]  : 文件path=WindowsPath('D:/workspace/mashang_project/web_ui_three/testcases/test_excel.xlsx'), 包含1个sheet
+INFO     2022-09-15 12:36:36 [core.read_data:35]  : sheet:登录, 包含2个用例
+INFO     2022-09-15 12:36:36 [test_excel:22]  : 所有excel测试用例执行完成
+INFO     2022-09-15 12:36:51 [core.kdt:48]  : 正在定位元素: ('xpath', '/html/body/div[4]/div/div[2]/div[2]/div/div/div[1]/form/div[1]/input')
+INFO     2022-09-15 12:36:51 [core.kdt:50]  : 元素定位成功
+INFO     2022-09-15 12:36:52 [core.kdt:48]  : 正在定位元素: ('xpath', '/html/body/div[4]/div/div[2]/div[2]/div/div/div[1]/form/div[2]/div/input')
+INFO     2022-09-15 12:36:52 [core.kdt:50]  : 元素定位成功
+INFO     2022-09-15 12:36:52 [core.kdt:48]  : 正在定位元素: ('xpath', '/html/body/div[4]/div/div[2]/div[2]/div/div/div[1]/form/div[3]/button')
+INFO     2022-09-15 12:36:52 [core.kdt:50]  : 元素定位成功
+INFO     2022-09-15 12:36:52 [core.kdt:48]  : 正在定位元素: ('xpath', '//p[@class="prompt-msg"]')
+INFO     2022-09-15 12:36:52 [core.kdt:50]  : 元素定位成功
+INFO     2022-09-15 12:36:52 [core.kdt:82]  : 元素的文本是密码错误
+INFO     2022-09-15 12:36:52 [core.kdt:84]  : 预期的文本是密码错误
+INFO     2022-09-15 12:36:54 [core.kdt:48]  : 正在定位元素: ('xpath', '/html/body/div[4]/div/div[2]/div[2]/div/div/div[1]/form/div[1]/input')
+INFO     2022-09-15 12:36:54 [core.kdt:50]  : 元素定位成功
+INFO     2022-09-15 12:36:54 [core.kdt:48]  : 正在定位元素: ('xpath', '/html/body/div[4]/div/div[2]/div[2]/div/div/div[1]/form/div[2]/div/input')
+INFO     2022-09-15 12:36:54 [core.kdt:50]  : 元素定位成功
+INFO     2022-09-15 12:36:55 [core.kdt:48]  : 正在定位元素: ('xpath', '/html/body/div[4]/div/div[2]/div[2]/div/div/div[1]/form/div[3]/button')
+INFO     2022-09-15 12:36:55 [core.kdt:50]  : 元素定位成功
+INFO     2022-09-15 12:36:55 [core.kdt:48]  : 正在定位元素: ('xpath', '//p[@class="prompt-msg"]')
+INFO     2022-09-15 12:36:55 [core.kdt:50]  : 元素定位成功
+INFO     2022-09-15 12:36:55 [core.kdt:82]  : 元素的文本是密码错误
+INFO     2022-09-15 12:36:55 [core.kdt:84]  : 预期的文本是登录成功
+ERROR    2022-09-15 12:36:55 [core.case:44]  : 关键字调用出错
+Traceback (most recent call last):
+  File "D:\workspace\mashang_project\web_ui_three\core\case.py", line 42, in test_
+    f(*args)  # 调用关键字方法
+  File "D:\workspace\mashang_project\web_ui_three\venv\lib\site-packages\allure_commons\_allure.py", line 172, in impl
+    return func(*a, **kw)
+  File "D:\workspace\mashang_project\web_ui_three\core\kdt.py", line 85, in key_assert_text
+    assert text == el_text
+AssertionError

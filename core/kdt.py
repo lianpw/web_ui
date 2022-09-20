@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
@@ -10,11 +11,34 @@ logger = logging.getLogger(__name__)
 
 
 class KeyWord:
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver: WebDriver=None, request=None):
+        self.request = request  # pytest和关键字驱动建立联系
+        if driver:
+            self.set_driver(driver)
+
+    def set_driver(self, driver: WebDriver):
         self.driver = driver
         driver.maximize_window()
-        self.wait = WebDriverWait(driver, 10)  # 显示等待, 最多10s
+        self.wait = WebDriverWait(driver, 10, 0.1)  # 显示等待, 最多10s
 
+    def get_kw_method(self, key):
+        """获取关键字方法"""
+        f = getattr(self,f'key_{key}')
+        if not f:
+            raise AttributeError(f'不存在的关键字{key}')
+        return f
+
+    def key_driver_fixture(self, fuxture_name):
+        """
+        使用pytest的fixture作为kw的driver
+        :param fuxture_name:
+        :return:
+        """
+        driver = self.request.getfixturevalue(fuxture_name)  # 根据字符串获取pytest夹具
+
+        self.set_driver(driver)
+
+    @allure.step('定位元素')
     def find_element(self, *args):
         """
         封装元素定位方法, 自动使用显示等待
@@ -29,7 +53,7 @@ class KeyWord:
     def key_get_url(self, url):
         self.driver.get(url)
 
-    def key_clikc(self, loc):
+    def key_click(self, loc):
         """点击方法"""
         el = self.find_element(By.XPATH, loc)
         self.wait.until(lambda _: el.is_enabled())
@@ -50,6 +74,7 @@ class KeyWord:
         text = el.text
         return text
 
+    @allure.step('断言文本内容')
     def key_assert_text(self, loc, text):
         el = self.find_element(By.XPATH, loc)
         self.wait.until(lambda _: el.is_enabled())

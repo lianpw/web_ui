@@ -1,6 +1,14 @@
-from pprint import pprint
+import pytest
+
+from test03 import Base
 
 
-data = {'登录失败': [[1, '使用fixture启动浏览器', 'driver_fixture', 'driver']]}
+class TestPage:
+    @pytest.fixture(autouse=True)
+    def init_fixture(self, request):
+        self.request = request
 
-pprint(data)
+    def test_add(self):
+        kw = Base(request=self.request)
+
+        kw.base_fixture('driver')

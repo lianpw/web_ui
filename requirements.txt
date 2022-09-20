@@ -4,3 +4,4 @@ pytest
 pytest-rerunfailures
 allure-pytest
 openpyxl
+pydantic
